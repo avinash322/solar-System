@@ -1,8 +1,10 @@
-var pointLight, sun,mercury, moon, earth, earthOrbit, ring, controls, scene, camera, renderer, scene;
+var pointLight, sun, moon, earth, earthOrbit, ring, controls, scene, camera, renderer, scene;
 var planetSegments = 48;
+var sundata = constructPlanetData();
+var marsData = constructPlanetData(365.2564, 0.015, 25, "mars", "img/2k_mars.jpg", 1, planetSegments);
 var earthData = constructPlanetData(365.2564, 0.015, 25, "earth", "img/earth.jpg", 1, planetSegments);
 var moonData = constructPlanetData(29.5, 0.01, 2.8, "moon", "img/moon.jpg", 0.5, planetSegments);
-var mercuryData = constructPlanetData(29.5, 0.01, 2.8, "mercury", "img/mercury.jpg", 0.5, planetSegments);
+var jupiterData = constructPlanetData(365.2564, 0.015, 25, "jupiter", "img/2k_jupiter.jpg", 1, planetSegments);
 var orbitData = {value: 200, runOrbit: true, runRotation: true};
 var clock = new THREE.Clock();
 
@@ -104,7 +106,15 @@ function getMaterial(type, color, myTexture) {
  *  Draws all of the orbits to be shown in the scene.
  * @returns {undefined}
  */
-
+function createVisibleOrbits() {
+    var orbitWidth = 0.01;
+    earthOrbit = getRing(earthData.distanceFromAxis + orbitWidth
+        , earthData.distanceFromAxis - orbitWidth
+        , 320
+        , 0xffffff
+        , "earthOrbit"
+        , 0);
+}
 
 /**
  * Simplifies the creation of a sphere.
@@ -223,7 +233,6 @@ function update(renderer, scene, camera, controls) {
     var time = Date.now();
 
     movePlanet(earth, earthData, time);
-    movePlanet(mercury,mercuryData,time);
     movePlanet(ring, earthData, time, true);
     moveMoon(moon, earth, moonData, time);
 
@@ -293,13 +302,15 @@ function init() {
 
 
     // Create the Earth, the Moon, and a ring around the earth.
-    mercury = loadTexturedPlanet(mercuryData,mercuryData.distanceFromAxis,0,0);
     earth = loadTexturedPlanet(earthData, earthData.distanceFromAxis, 0, 0);
     moon = loadTexturedPlanet(moonData, moonData.distanceFromAxis, 0, 0);
+    mars = loadTexturedPlanet(marsData, marsData.distanceFromAxis,0, 0);
+    jupiter = loadTexturedPlanet(jupiterData, jupiterData.distanceFromAxis,0, 0);
     ring = getTube(1.8, 0.05, 480, 0x757064, "ring", earthData.distanceFromAxis);
 
     // Create the visible orbit that the Earth uses.
-  
+    createVisibleOrbits();
+
     // Start the animation.
     update(renderer, scene, camera, controls);
 }
