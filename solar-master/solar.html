@@ -1,7 +1,7 @@
 <!DOCTYPE html>
  <html>
     <head>		
-		<title>Solar System</title>
+		<title> Tugas Besar Solar System</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		
@@ -208,29 +208,29 @@
 	scene.add( mesh );
 	pathobj.push(mesh);
 	// Jupiter Orbit
-	// juppath = new Ellipse( 46, 34 );
-    // var jupgeometry = new THREE.TubeBufferGeometry( juppath, pathSegments, tubeRadius, radiusSegments, closed );
-	// mesh = new THREE.Mesh( jupgeometry, material );
-	// scene.add( mesh );
-	// pathobj.push(mesh);
-	// // Saturn Orbit
-	// satpath = new Ellipse( 57, 42 );
-    // var satgeometry = new THREE.TubeBufferGeometry( satpath, pathSegments, tubeRadius, radiusSegments, closed );
-	// mesh = new THREE.Mesh( satgeometry, material );
-	// scene.add( mesh );
-	// pathobj.push(mesh);
-	// // Uranus Orbit
-	// urapath = new Ellipse( 69, 49 );
-    // var urageometry = new THREE.TubeBufferGeometry( urapath, pathSegments, tubeRadius, radiusSegments, closed );
-	// mesh = new THREE.Mesh( urageometry, material );
-	// scene.add( mesh );
-	// pathobj.push(mesh);
-	// // Neptune Orbit
-	// neppath = new Ellipse( 79, 59 );
-    // var nepgeometry = new THREE.TubeBufferGeometry( neppath, pathSegments, tubeRadius, radiusSegments, closed );
-	// mesh = new THREE.Mesh( nepgeometry, material );
-	// scene.add( mesh );
-	// pathobj.push(mesh);
+	juppath = new Ellipse( 46, 34 );
+    var jupgeometry = new THREE.TubeBufferGeometry( juppath, pathSegments, tubeRadius, radiusSegments, closed );
+	mesh = new THREE.Mesh( jupgeometry, material );
+	scene.add( mesh );
+	pathobj.push(mesh);
+	// Saturn Orbit
+	satpath = new Ellipse( 57, 42 );
+    var satgeometry = new THREE.TubeBufferGeometry( satpath, pathSegments, tubeRadius, radiusSegments, closed );
+	mesh = new THREE.Mesh( satgeometry, material );
+	scene.add( mesh );
+	pathobj.push(mesh);
+	// Uranus Orbit
+	urapath = new Ellipse( 69, 49 );
+    var urageometry = new THREE.TubeBufferGeometry( urapath, pathSegments, tubeRadius, radiusSegments, closed );
+	mesh = new THREE.Mesh( urageometry, material );
+	scene.add( mesh );
+	pathobj.push(mesh);
+	// Neptune Orbit
+	neppath = new Ellipse( 79, 59 );
+    var nepgeometry = new THREE.TubeBufferGeometry( neppath, pathSegments, tubeRadius, radiusSegments, closed );
+	mesh = new THREE.Mesh( nepgeometry, material );
+	scene.add( mesh );
+	pathobj.push(mesh);
 	
  	// glTf 2.0 Loader
 	var loader = new THREE.GLTFLoader();
@@ -246,7 +246,7 @@
 	gltf.scene.position.x = 0;				    //Position (x = right+ left-) 
     gltf.scene.position.y = -2;				    //Position (y = up+, down-)
 	gltf.scene.position.z = -3;				    //Position (z = front +, back-)
-	//gltf.animations;
+	gltf.animations;
 	scene.add( gltf.scene );
 	planobj.push(sun);
 	});
@@ -279,14 +279,14 @@
 	planobj.push(earth);
 	});
 
-	/*loader.load( 'model/moon/moon.gltf', function ( gltf ) {           //   <<--------- Model Path
+	loader.load( 'model/moon/moon.gltf', function ( gltf ) {           //   <<--------- Model Path
 	moon = gltf.scene;			
 	gltf.scene.scale.set( 1, 1, 1 );			   
-	//var pt = moonpath.getPoint( eat );
+	var pt = moonpath.getPoint( eat );
 	gltf.scene.position.set(moonorbit.x+2,moonorbit.y+2,moonorbit.z);
 	scene.add( gltf.scene);
 	});
-	*/
+	
 	loader.load( 'model/mars/mars.gltf', function ( gltf ) {           //   <<--------- Model Path
 	mars = gltf.scene;			
 	gltf.scene.scale.set( 2, 2, 2 );			   
@@ -343,22 +343,22 @@
 	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 	document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 
-	guic = new dat.GUI( { width: 350 } );
+	// guic = new dat.GUI( { width: 350 } );
 
 
 	// Controls
-	var controlGUI = guic.addFolder( "Controls" );
-	//controlGUI.add(controlConfig.freezState,'Freeze State').listen();
+	// var controlGUI = guic.addFolder( "Controls" );
+	// // controlGUI.add(controlConfig.freezState,'Freeze State').listen();
 
-	controlGUI.add( controlConfig, 'freezState' )
+	// controlGUI.add( controlConfig, 'freezState' )
 	
-	controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
-	{
-		//sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
-		//sunLight.shadow.camera.updateProjectionMatrix();
-		//shadowCameraHelper.update();
+	// controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
+	// {
+	// 	// sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
+	// 	// sunLight.shadow.camera.updateProjectionMatrix();
+	// 	// shadowCameraHelper.update();
 
-	});
+	// });
 
 
 
@@ -367,7 +367,7 @@
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	//controls.handleResize();
+	controls.handleResize();
 	}
 	
 	function onDocumentTouchStart( event ) {
@@ -414,7 +414,7 @@ function onDocumentMouseDown( event ) {
 
 	function revolvePlanet(){
 		if (mercury)
-		{ 	//mercury.rotation.y+=0.05;
+		{ 	mercury.rotation.y+=0.05;
 			var pt = mercpath.getPoint( mt );
 			var tangent = mercpath.getTangent( mt ).normalize();
 			mercury.position.set(pt.x,pt.y,pt.z);
@@ -426,7 +426,7 @@ function onDocumentMouseDown( event ) {
 		}
 		if (venus) 
 		{	
-			//venus.rotation.y+=0.04;
+			venus.rotation.y+=0.04;
 			var pt = venpath.getPoint( vet );
 			var tangent = venpath.getTangent( vet ).normalize();
 			venus.position.set(pt.x,pt.y,pt.z);
