@@ -207,7 +207,7 @@
 	mesh = new THREE.Mesh( marsgeometry, material );
 	scene.add( mesh );
 	pathobj.push(mesh);
-	// Jupiter Orbit
+	//Jupiter Orbit
 	// juppath = new Ellipse( 46, 34 );
     // var jupgeometry = new THREE.TubeBufferGeometry( juppath, pathSegments, tubeRadius, radiusSegments, closed );
 	// mesh = new THREE.Mesh( jupgeometry, material );
@@ -343,22 +343,22 @@
 	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 	document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 
-	guic = new dat.GUI( { width: 350 } );
+	// guic = new dat.GUI( { width: 350 } );
 
 
-	// Controls
-	var controlGUI = guic.addFolder( "Controls" );
-	//controlGUI.add(controlConfig.freezState,'Freeze State').listen();
+	// // Controls
+	// var controlGUI = guic.addFolder( "Controls" );
+	// //controlGUI.add(controlConfig.freezState,'Freeze State').listen();
 
-	controlGUI.add( controlConfig, 'freezState' )
+	// controlGUI.add( controlConfig, 'freezState' )
 	
-	controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
-	{
-		//sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
-		//sunLight.shadow.camera.updateProjectionMatrix();
-		//shadowCameraHelper.update();
+	// controlGUI.add( controlConfig, 'revolveSpeed', 1, 24 ).onChange( function() 
+	// {
+	// 	//sunLight.shadow.camera.near = shadowConfig.shadowCameraNear;
+	// 	//sunLight.shadow.camera.updateProjectionMatrix();
+	// 	//shadowCameraHelper.update();
 
-	});
+	// });
 
 
 
