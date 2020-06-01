@@ -377,7 +377,7 @@ function onDocumentMouseDown( event ) {
 			eat = (eat >= 1) ? 0 : eat += 0.05/controlConfig.revolveSpeed;
 		}
 		if (mars) 
-		{	mars.rotation.y=0.2;
+		{	mars.rotation.y+=0.02;
 			var pt = marspath.getPoint( mat );
 			var tangent = marspath.getTangent( mat );
 			mars.position.set(pt.x,pt.y,pt.z);
@@ -386,41 +386,40 @@ function onDocumentMouseDown( event ) {
 			mat = (mat >= 1) ? 0 : mat += 0.055/controlConfig.revolveSpeed;
 		}
 		if (jupiter) 
-		{	jupiter.rotation.y=0.010222;
+		{	jupiter.rotation.y+=0.004;
 			var pt = juppath.getPoint( jupt );
 			var tangent = juppath.getTangent( jupt ).normalize();
 			jupiter.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
 			var radians = Math.acos( up.dot( tangent ) );
-			jupt = (jupt >= 1) ? 0 : jupt += 0.007/controlConfig.revolveSpeed;
+			jupt = (jupt >= 1) ? 0 : jupt += 0.00006/controlConfig.revolveSpeed;
 		}
 		if (saturn) 
-		{	saturn.rotation.y+=0.4;
+		{	saturn.rotation.y+=0.009;
 			var pt = satpath.getPoint( satt );
 			var tangent = satpath.getTangent( satt ).normalize();
 			saturn.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
 			var radians = Math.acos( up.dot( tangent ) );
-			satt = (satt >= 1) ? 0 : satt += 0.004/controlConfig.revolveSpeed;
+			satt = (satt >= 1) ? 0 : satt += 0.00003/controlConfig.revolveSpeed;
 		}
 		if (uranus) 
-		{	uranus.rotation.y=0.6;
+		{	uranus.rotation.y+=0.0004;
 			var pt = urapath.getPoint( urat );
 			var tangent = urapath.getTangent( urat ).normalize();
 			uranus.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
 			var radians = Math.acos( up.dot( tangent ) );
-			urat = (urat >= 1) ? 0 : urat += 0.002/controlConfig.revolveSpeed;
+			urat = (urat >= 1) ? 0 : urat += 0.000009/controlConfig.revolveSpeed;
 		}
 		if (neptune) 
-		{	neptune.rotation.y=0.14;
+		{	neptune.rotation.y+=0.0004;
 			var pt = neppath.getPoint( nept );
 			var tangent = neppath.getTangent( nept ).normalize();
 			neptune.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
-	
 			var radians = Math.acos( up.dot( tangent ) );
-			nept = (nept >= 1) ? 0 : nept += 0.0009/controlConfig.revolveSpeed;
+			nept = (nept >= 1) ? 0 : nept += 0.0000009/controlConfig.revolveSpeed;
 		}
 		
 
