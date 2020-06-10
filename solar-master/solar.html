@@ -392,7 +392,7 @@ function onDocumentMouseDown( event ) {
 			jupiter.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
 			var radians = Math.acos( up.dot( tangent ) );
-			jupt = (jupt >= 1) ? 0 : jupt += 0.00006/controlConfig.revolveSpeed;
+			jupt = (jupt >= 1) ? 0 : jupt += 0.00015;
 		}
 		if (saturn) 
 		{	saturn.rotation.y+=0.009;
@@ -401,25 +401,25 @@ function onDocumentMouseDown( event ) {
 			saturn.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
 			var radians = Math.acos( up.dot( tangent ) );
-			satt = (satt >= 1) ? 0 : satt += 0.00003/controlConfig.revolveSpeed;
+			satt = (satt >= 1) ? 0 : satt += 0.00005;
 		}
 		if (uranus) 
-		{	uranus.rotation.y+=0.0004;
+		{	uranus.rotation.y+=0.005;
 			var pt = urapath.getPoint( urat );
 			var tangent = urapath.getTangent( urat ).normalize();
 			uranus.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
 			var radians = Math.acos( up.dot( tangent ) );
-			urat = (urat >= 1) ? 0 : urat += 0.000009/controlConfig.revolveSpeed;
+			urat = (urat >= 1) ? 0 : urat += 0.00003;
 		}
 		if (neptune) 
-		{	neptune.rotation.y+=0.0004;
+		{	neptune.rotation.y+=0.004;
 			var pt = neppath.getPoint( nept );
 			var tangent = neppath.getTangent( nept ).normalize();
 			neptune.position.set(pt.x,pt.y,pt.z);
 			axis.crossVectors( up, tangent ).normalize();
 			var radians = Math.acos( up.dot( tangent ) );
-			nept = (nept >= 1) ? 0 : nept += 0.0000009/controlConfig.revolveSpeed;
+			nept = (nept >= 1) ? 0 : nept += 0.000009;
 		}
 		
 
